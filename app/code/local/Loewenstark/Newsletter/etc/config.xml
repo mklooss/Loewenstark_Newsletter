@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Loewenstark_Newsletter>
+            <version>0.2.0</version>
+        </Loewenstark_Newsletter>
+    </modules>
+    <frontend>
+        <routers>
+            <newsletter>
+                <args>
+                    <modules>
+                        <Loewenstark_Newsletter before="Mage_Newsletter">Loewenstark_Newsletter</Loewenstark_Newsletter>
+                    </modules>
+                </args>
+            </newsletter>
+        </routers>
+        <translate>
+            <modules>
+                <Loewenstark_Newsletter>
+                    <files>
+                        <default>Loewenstark_Newsletter.csv</default>
+                    </files>
+                </Loewenstark_Newsletter>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <lws_newsletter module="Loewenstark_Newsletter">
+                    <file>loewenstark/newsletter.xml</file>
+                </lws_newsletter>
+            </updates>
+        </layout>
+        <secure_url>
+            <newsletter_subscriber>/newsletter/subscriber/</newsletter_subscriber>
+            <newsletter_unsubscriber>/newsletter/unsubscriber/</newsletter_unsubscriber>
+        </secure_url>
+    </frontend>
+    <global>
+        <models>
+            <lws_newsletter>
+                <class>Loewenstark_Newsletter_Model</class>
+            </lws_newsletter>
+            <newsletter>
+                <rewrite>
+                    <subscriber>Loewenstark_Newsletter_Model_Subscriber</subscriber>
+                </rewrite>
+            </newsletter>
+        </models>
+        <blocks>
+            <lws_newsletter>
+                <class>Loewenstark_Newsletter_Block</class>
+            </lws_newsletter>
+        </blocks>
+    </global>
+</config>
