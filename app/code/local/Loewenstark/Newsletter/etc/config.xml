@@ -43,7 +43,7 @@
             </lws_newsletter>
             <newsletter>
                 <rewrite>
-                    <unsubscriber>Loewenstark_Newsletter_Model_Unsubscribe</unsubscriber>
+                    <unsubscribe>Loewenstark_Newsletter_Model_Unsubscribe</unsubscribe>
                 </rewrite>
             </newsletter>
         </models>

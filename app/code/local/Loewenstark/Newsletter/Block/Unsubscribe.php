@@ -12,6 +12,6 @@ extends Mage_Newsletter_Block_Subscribe
      */
     public function getFormActionUrl()
     {
-        return $this->getUrl('newsletter/unsubscriber', array('_secure' => true));
+        return $this->getUrl('newsletter/unsubscribe', array('_secure' => true));
     }
 }
