@@ -1,0 +1,6 @@
+app/etc/modules/Loewenstark_Newsletter.xml                              app/etc/modules/Aoe_AsyncCache.xml
+app/code/local/Loewenstark/Newsletter/                                  app/code/local/Loewenstark/Newsletter/
+app/locale/de_DE/Loewenstark_Newsletter.csv                             app/locale/de_DE/Loewenstark_Newsletter.csv
+app/locale/en_US/Loewenstark_Newsletter.csv                             app/locale/en_US/Loewenstark_Newsletter.csv
+app/design/frontend/base/default/layout/loewenstark/newsletter.xml      app/design/frontend/base/default/layout/loewenstark/newsletter.xml
+app/design/frontend/base/default/template/newsletter/unsubscribe.phtml  app/design/frontend/base/default/template/newsletter/unsubscribe.phtml
