@@ -2,7 +2,7 @@
 <layout version="0.2.0">
     <default>
         <reference name="left">
-            <block type="lws_newsletter/unsubscribe" name="newsletter.unsubscribe" as="newsletter_unsubscribe" after="newsletter" template="newsletter/unsubscribe.phtml"/>
+            <block type="newsletter/unsubscribe" name="newsletter.unsubscribe" as="newsletter_unsubscribe" after="newsletter" template="newsletter/unsubscribe.phtml"/>
         </reference>
     </default>
 </layout>

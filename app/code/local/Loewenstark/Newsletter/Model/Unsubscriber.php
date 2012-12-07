@@ -1,6 +1,7 @@
 <?php
 
-class Loewenstark_Newsletter_Model_Subscriber extends Mage_Newsletter_Model_Subscriber
+class Loewenstark_Newsletter_Model_Unsubscriber
+extends Mage_Newsletter_Model_Subscriber
 {
     /** @var bool $_sendConfirmationSuccessEmail check if email already send **/
     private $_sendConfirmationSuccessEmail = true;

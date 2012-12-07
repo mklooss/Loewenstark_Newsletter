@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Loewenstark_Newsletter>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Loewenstark_Newsletter>
     </modules>
     <frontend>
@@ -43,7 +43,7 @@
             </lws_newsletter>
             <newsletter>
                 <rewrite>
-                    <subscriber>Loewenstark_Newsletter_Model_Subscriber</subscriber>
+                    <unsubscriber>Loewenstark_Newsletter_Model_Unsubscriber</unsubscriber>
                 </rewrite>
             </newsletter>
         </models>
@@ -51,6 +51,11 @@
             <lws_newsletter>
                 <class>Loewenstark_Newsletter_Block</class>
             </lws_newsletter>
+            <newsletter>
+                <rewrite>
+                    <unsubscriber>Loewenstark_Newsletter_Block_Unsubscriber</unsubscriber>
+                </rewrite>
+            </newsletter>
         </blocks>
     </global>
 </config>
