@@ -44,6 +44,7 @@
             <newsletter>
                 <rewrite>
                     <unsubscribe>Loewenstark_Newsletter_Model_Unsubscribe</unsubscribe>
+                    <subscriber>Loewenstark_Newsletter_Model_Subscriber</subscriber>
                 </rewrite>
             </newsletter>
         </models>
@@ -52,7 +53,7 @@
                 <class>Loewenstark_Newsletter_Block</class>
             </lws_newsletter>
             <newsletter>
-                <rewrite>Mage_Newsletter_Block_Unsubscribe
+                <rewrite>
                     <unsubscribe>Loewenstark_Newsletter_Block_Unsubscribe</unsubscribe>
                 </rewrite>
             </newsletter>
