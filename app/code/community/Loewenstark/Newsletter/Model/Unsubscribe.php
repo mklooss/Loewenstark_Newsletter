@@ -1,6 +1,6 @@
 <?php
 
-class Loewenstark_Newsletter_Block_Unsubscribe
+class Loewenstark_Newsletter_Model_Unsubscribe
 extends Mage_Newsletter_Model_Subscriber
 {
 
