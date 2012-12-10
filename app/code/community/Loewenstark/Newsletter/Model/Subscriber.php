@@ -18,7 +18,9 @@ extends Mage_Newsletter_Model_Subscriber
      */
     public function subscribe($email)
     {
-        if(Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN)) {
+        // fall back to default
+        if(Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN))
+        {
             return parent::subscribe($email);
         }
         

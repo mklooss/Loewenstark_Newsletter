@@ -37,6 +37,11 @@
         </secure_url>
     </frontend>
     <global>
+        <helpers>
+            <lws_newsletter>
+                <class>Loewenstark_Newsletter_Helper</class>
+            </lws_newsletter>
+        </helpers>
         <models>
             <lws_newsletter>
                 <class>Loewenstark_Newsletter_Model</class>
@@ -45,6 +50,7 @@
                 <rewrite>
                     <unsubscribe>Loewenstark_Newsletter_Model_Unsubscribe</unsubscribe>
                     <subscriber>Loewenstark_Newsletter_Model_Subscriber</subscriber>
+                    <observer>Loewenstark_Newsletter_Model_Observer</observer>
                 </rewrite>
             </newsletter>
         </models>
@@ -59,4 +65,11 @@
             </newsletter>
         </blocks>
     </global>
+    <default>
+        <newsletter>
+            <advanced>
+                <doubleoptinmagedefault>0</doubleoptinmagedefault>
+            </advanced>
+        </newsletter>
+    </default>
 </config>
