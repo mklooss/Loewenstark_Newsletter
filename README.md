@@ -10,7 +10,9 @@ Facts
 Description
 -----------
 Added support to display an unsubscribe newsletter box for guests.
+
 Added confirmation email after double opt in confirmation.
+
 Force SSL for newsletter links
 
 Requirements
@@ -36,7 +38,7 @@ Any contribution is highly appreciated. The best way to contribute code is to op
 
 Developer
 ---------
-[Mathis Klooﬂ](http://www.loewenstark.de/)
+[Mathis Klooﬂ](http://www.loewenstark.de/ or http://www.gunah.eu)
 
 Licence
 -------
