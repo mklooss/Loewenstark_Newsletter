@@ -1,6 +1,13 @@
 <?php
-
-class Loewenstark_Newsletter_UnsubscribeController
+/**
+ * Loewenstark_Newsletter
+ *
+ * @category    Controller
+ * @package     Loewenstark_Newsletter
+ * @copyright   Copyright (c) 2012 Mathis Klooss (http://www.loewenstark.de/)
+ * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
+ */
+class Loewenstark_Newsletter_UnsubscriberController
 extends Mage_Core_Controller_Front_Action
 {
     public function indexAction()
@@ -14,7 +21,7 @@ extends Mage_Core_Controller_Front_Action
                     Mage::throwException($this->__('Please enter a valid email address.'));
                 }
 
-                $status = Mage::getModel('newsletter/unsubscribe')->unsubscribeByEmail($email);
+                $status = Mage::getModel('newsletter/unsubscriber')->unsubscribeByEmail($email);
                 $session->addSuccess($this->__('You have been unsubscribed.'));
             }
             catch (Mage_Core_Exception $e) {

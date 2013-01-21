@@ -1,6 +1,7 @@
-app/etc/modules/Loewenstark_Newsletter.xml                              app/etc/modules/Loewenstark_Newsletter.xml
-app/code/community/Loewenstark/Newsletter/                              app/code/community/Loewenstark/Newsletter/
-app/locale/de_DE/Loewenstark_Newsletter.csv                             app/locale/de_DE/Loewenstark_Newsletter.csv
-app/locale/en_US/Loewenstark_Newsletter.csv                             app/locale/en_US/Loewenstark_Newsletter.csv
-app/design/frontend/base/default/layout/loewenstark/newsletter.xml      app/design/frontend/base/default/layout/loewenstark/newsletter.xml
-app/design/frontend/base/default/template/newsletter/unsubscribe.phtml  app/design/frontend/base/default/template/newsletter/unsubscribe.phtml
+app/etc/modules/Loewenstark_Newsletter.xml                                app/etc/modules/Loewenstark_Newsletter.xml
+app/code/community/Loewenstark/Newsletter/                                app/code/community/Loewenstark/Newsletter/
+app/locale/de_DE/Loewenstark_Newsletter.csv                               app/locale/de_DE/Loewenstark_Newsletter.csv
+app/locale/en_US/Loewenstark_Newsletter.csv                               app/locale/en_US/Loewenstark_Newsletter.csv
+app/design/frontend/base/default/layout/loewenstark/newsletter.xml        app/design/frontend/base/default/layout/loewenstark/newsletter.xml
+app/design/frontend/base/default/template/newsletter/unsubscribe.phtml    app/design/frontend/base/default/template/newsletter/unsubscribe.phtml
+app/design/frontend/base/default/template/newsletter/manage/resend.phtml  app/design/frontend/base/default/template/newsletter/manage/resend.phtml

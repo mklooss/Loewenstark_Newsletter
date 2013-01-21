@@ -1,6 +1,13 @@
 <?php
-
-class Loewenstark_Newsletter_SubscribeController
+/**
+ * Loewenstark_Newsletter
+ *
+ * @category    Controller
+ * @package     Loewenstark_Newsletter
+ * @copyright   Copyright (c) 2012 Mathis Klooss (http://www.loewenstark.de/)
+ * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
+ */
+class Loewenstark_Newsletter_SubscriberController
 extends Mage_Core_Controller_Front_Action
 {
     /**

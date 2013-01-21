@@ -1,4 +1,14 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Loewenstark_Newsletter
+ *
+ * @category    etc
+ * @package     Loewenstark_Newsletter
+ * @copyright   Copyright (c) 2012 Mathis Klooss (http://www.loewenstark.de/)
+ * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
+ */
+//-->
 <config>
 	<modules>
 		<Loewenstark_Newsletter>

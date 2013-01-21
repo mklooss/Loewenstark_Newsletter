@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Loewenstark_Newsletter
+ *
+ * @category    etc
+ * @package     Loewenstark_Newsletter
+ * @copyright   Copyright (c) 2012 Mathis Klooss (http://www.loewenstark.de/)
+ * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
+ */
+//-->
 <config>
     <modules>
         <Loewenstark_Newsletter>
-            <version>1.2.0</version>
+            <version>1.5.0</version>
         </Loewenstark_Newsletter>
     </modules>
     <frontend>
@@ -48,7 +58,7 @@
             </lws_newsletter>
             <newsletter>
                 <rewrite>
-                    <unsubscribe>Loewenstark_Newsletter_Model_Unsubscribe</unsubscribe>
+                    <unsubscriber>Loewenstark_Newsletter_Model_Unsubscriber</unsubscriber>
                     <subscriber>Loewenstark_Newsletter_Model_Subscriber</subscriber>
                     <observer>Loewenstark_Newsletter_Model_Observer</observer>
                 </rewrite>
@@ -60,7 +70,8 @@
             </lws_newsletter>
             <newsletter>
                 <rewrite>
-                    <unsubscribe>Loewenstark_Newsletter_Block_Unsubscribe</unsubscribe>
+                    <unsubscriber>Loewenstark_Newsletter_Block_Unsubscriber</unsubscriber>
+                    <unsubscribe>Loewenstark_Newsletter_Block_Unsubscriber</unsubscribe><!-- fallback //-->
                 </rewrite>
             </newsletter>
         </blocks>

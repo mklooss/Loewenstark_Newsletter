@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Loewenstark_Newsletter
+ *
+ * @category    Model
+ * @package     Loewenstark_Newsletter
+ * @copyright   Copyright (c) 2012 Mathis Klooss (http://www.loewenstark.de/)
+ * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
+ */
 class Loewenstark_Newsletter_Model_Subscriber
 extends Mage_Newsletter_Model_Subscriber
 {
@@ -8,6 +15,8 @@ extends Mage_Newsletter_Model_Subscriber
     
     /** @var bool $_sendConfirmationSuccessEmail check if email already send **/
     protected $_sendConfirmationSuccessEmail = true;
+    /** @var bool $_sendConfirmationRequestEmail check if email already send **/
+    protected $_sendConfirmationRequestEmail = true;
     
     /**
      * Subscribes by email
@@ -44,7 +53,7 @@ extends Mage_Newsletter_Model_Subscriber
         ) {
             if ($isConfirmNeed === true) {
                 // BOF: changed for force double opt in
-                $this->setStatus(self::STATUS_NOT_ACTIVE);
+                $this->setStatus(self::STATUS_UNCONFIRMED);
                 // EOF: changed for force double opt in
             } else {
                 $this->setStatus(self::STATUS_SUBSCRIBED);
@@ -86,6 +95,12 @@ extends Mage_Newsletter_Model_Subscriber
      */
     public function subscribeCustomer($customer)
     {
+        // fall back to default
+        if(Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN))
+        {
+            return parent::subscribeCustomer($customer);
+        }
+        
         $this->loadByCustomer($customer);
 
         if ($customer->getImportMode()) {
@@ -102,27 +117,25 @@ extends Mage_Newsletter_Model_Subscriber
             $this->setSubscriberConfirmCode($this->randomSequence());
         }
 
-       /*
-        * Logical mismatch between customer registration confirmation code and customer password confirmation
-        */
-       $confirmation = null;
-       if ($customer->isConfirmationRequired() && ($customer->getConfirmation() != $customer->getPassword())) {
-           $confirmation = $customer->getConfirmation();
-       }
+        /*
+         * Logical mismatch between customer registration confirmation code and customer password confirmation
+         */
+        $confirmation = null;
+        if ($customer->isConfirmationRequired() && ($customer->getConfirmation() != $customer->getPassword())) {
+            $confirmation = $customer->getConfirmation();
+        }
 
         $sendInformationEmail = false;
         if ($customer->hasIsSubscribed()) {
-            $status = $customer->getIsSubscribed()
-                ? (!is_null($confirmation) ? self::STATUS_UNCONFIRMED : self::STATUS_SUBSCRIBED)
-                : self::STATUS_UNSUBSCRIBED;
+            $status = $customer->getIsSubscribed() ? self::STATUS_UNCONFIRMED : self::STATUS_UNSUBSCRIBED;
             /**
              * If subscription status has been changed then send email to the customer
              */
-            if ($status != self::STATUS_UNCONFIRMED && $status != $this->getStatus()) {
+            if($status == self::STATUS_UNCONFIRMED) {
                 $sendInformationEmail = true;
             }
         } elseif (($this->getStatus() == self::STATUS_UNCONFIRMED) && (is_null($confirmation))) {
-            $status = self::STATUS_SUBSCRIBED;
+            $status = self::STATUS_UNCONFIRMED;
             $sendInformationEmail = true;
         } else {
             $status = ($this->getStatus() == self::STATUS_NOT_ACTIVE ? self::STATUS_UNSUBSCRIBED : $this->getStatus());
@@ -154,7 +167,12 @@ extends Mage_Newsletter_Model_Subscriber
                 $this->sendUnsubscriptionEmail();
             } elseif ($this->getIsStatusChanged() && $status == self::STATUS_SUBSCRIBED) {
                 $this->sendConfirmationSuccessEmail();
+            } elseif ($this->getIsStatusChanged() && $status == self::STATUS_UNCONFIRMED) {
+                $this->sendConfirmationRequestEmail();
             }
+        }
+        if($sendRequestEmail && $status == self::STATUS_UNCONFIRMED) {
+            $this->sendConfirmationRequestEmail();
         }
         return $this;
     }
@@ -187,6 +205,14 @@ extends Mage_Newsletter_Model_Subscriber
         if( $this->_sendConfirmationSuccessEmail ) {
             parent::sendConfirmationSuccessEmail();
             $this->_sendConfirmationSuccessEmail = !$this->_sendConfirmationSuccessEmail;
+        }
+        return $this;
+    }
+    
+    public function sendConfirmationRequestEmail() {
+        if( $this->_sendConfirmationRequestEmail ) {
+            parent::sendConfirmationRequestEmail();
+            $this->_sendConfirmationRequestEmail = !$this->_sendConfirmationRequestEmail;
         }
         return $this;
     }
