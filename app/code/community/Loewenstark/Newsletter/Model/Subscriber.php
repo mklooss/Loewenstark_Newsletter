@@ -171,9 +171,6 @@ extends Mage_Newsletter_Model_Subscriber
                 $this->sendConfirmationRequestEmail();
             }
         }
-        if($sendRequestEmail && $status == self::STATUS_UNCONFIRMED) {
-            $this->sendConfirmationRequestEmail();
-        }
         return $this;
     }
     
