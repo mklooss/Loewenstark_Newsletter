@@ -11,13 +11,13 @@
   */
 //-->
 <config>
-	<modules>
-		<Loewenstark_Newsletter>
-			<active>true</active>
-			<codePool>community</codePool>
+    <modules>
+        <Loewenstark_Newsletter>
+            <active>true</active>
+            <codePool>community</codePool>
             <depends>
                 <Mage_Newsletter />
             </depends>
-		</Loewenstark_Newsletter>
-	</modules>
+        </Loewenstark_Newsletter>
+    </modules>
 </config>
