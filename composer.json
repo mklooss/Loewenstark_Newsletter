@@ -5,6 +5,6 @@
    "description": "Unsubscribe form Newsletter in Magento",
    "homepage": "https://github.com/mklooss/Loewenstark_Newsletter",
    "require": {
-      "magento-hackathon/magento-composer-installer": "dev-master"
+      "magento-hackathon/magento-composer-installer": "*"
    }
 }
