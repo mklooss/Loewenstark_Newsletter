@@ -1,13 +1,12 @@
 <?php
 /**
-  * Loewenstark_Newsletter
-  *
-  * @category  Loewenstark
-  * @package   Loewenstark_Newsletter
-  * @author    Mathis Klooss <m.klooss@loewenstark.de>
-  * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
-  * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
-  */
+ * Loewenstark_Newsletter
+ *
+ * @category    design
+ * @package     Loewenstark_Newsletter
+ * @copyright   Copyright (c) 2012 Mathis Klooss (http://www.loewenstark.de/)
+ * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
+ */
 ?>
 <div class="block block-subscribe block-unsubscribe">
     <div class="block-title">

@@ -11,7 +11,7 @@
 class Loewenstark_Newsletter_Model_Subscriber
 extends Mage_Newsletter_Model_Subscriber
 {
-    // configuration
+    
     CONST XML_PATH_ADVANCED_DOUBELOPTIN = "newsletter/advanced/doubleoptinmagedefault";
     
     /** @var bool $_sendConfirmationSuccessEmail check if email already send **/
