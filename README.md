@@ -4,7 +4,7 @@ Unsubscribe form Newsletter in Magento
 
 Facts
 -----
-- version: 1.5.0.0
+- version: 1.5.0.1
 - [extension on GitHub](https://github.com/mklooss/Loewenstark_Newsletter)
 
 Description

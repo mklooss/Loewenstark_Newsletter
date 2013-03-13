@@ -21,7 +21,8 @@
     <!-- add resend link -->
     <newsletter_manage_index>
         <reference name="customer_newsletter">
-            <block type="core/text_list" name="customer.newsletter.form.before" translate="label">
+            <!-- Missing core/text_list in Magento Default //-->
+            <block type="core/text_list" name="customer.form.newsletter.extra" translate="label">
                 <block type="lws_newsletter/resendrequest" name="resend.newsletter" template="newsletter/manage/resend.phtml" />
             </block>
         </reference>
