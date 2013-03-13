@@ -1,2 +1,4 @@
 /nbproject
 *~
+/var/connect/*.tgz
+/var/connect/package.xml
