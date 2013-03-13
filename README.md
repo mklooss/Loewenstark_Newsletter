@@ -1,6 +1,7 @@
 Loewenstark_Newsletter
 =====================
-Unsubscribe form Newsletter in Magento
+Unsubscribe by guest form Newsletter in Magento
+Double OptIn for Registered Customers
 
 Facts
 -----
@@ -8,11 +9,12 @@ Facts
 - [extension on GitHub](https://github.com/mklooss/Loewenstark_Newsletter)
 
 Description
------------
-Added support to display an unsubscribe newsletter box for guests.
+cribe-Box
+Double opt-in for registered customers
+Force SSL for Newsletter links
+Resend double opt-in email option
 
-Added confirmation email after double opt in confirmation.
-
+----------
 Force SSL for newsletter links
 
 Requirements
@@ -38,7 +40,7 @@ Any contribution is highly appreciated. The best way to contribute code is to op
 
 Developer
 ---------
-[Mathis Klooﬂ](http://www.loewenstark.de/ or http://www.gunah.eu)
+[Mathis Klooﬂ](http://www.loewenstark.de/)
 
 Licence
 -------
