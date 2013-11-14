@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Loewenstark_Newsletter>
-            <version>1.5.0.0</version>
+            <version>1.5.0.2</version>
         </Loewenstark_Newsletter>
     </modules>
     <frontend>
