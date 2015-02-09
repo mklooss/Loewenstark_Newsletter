@@ -8,10 +8,8 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_Model_Unsubscriber
-extends Loewenstark_Newsletter_Model_Subscriber
+class Loewenstark_Newsletter_Model_Unsubscriber extends Loewenstark_Newsletter_Model_Subscriber
 {
-
     /**
      * unsubscribes by email
      *
@@ -19,10 +17,11 @@ extends Loewenstark_Newsletter_Model_Subscriber
      * @throws Exception
      * @return int
      */
-    public function unsubscribeByEmail($email) {
+    public function unsubscribeByEmail($email)
+    {
         $this->setStoreId(Mage::app()->getStore()->getId());
         $this->loadByEmail($email);
-        if( !$this->getId() ) {
+        if (!$this->getId()) {
             return false;
         }
         $this->setCheckCode($this->getCode());

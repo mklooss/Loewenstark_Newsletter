@@ -8,10 +8,8 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_Block_Resendrequest
-extends Mage_Customer_Block_Account_Dashboard
+class Loewenstark_Newsletter_Block_Resendrequest extends Mage_Customer_Block_Account_Dashboard
 {
-
     /**
      * get resend url
      *
@@ -21,39 +19,39 @@ extends Mage_Customer_Block_Account_Dashboard
     {
         return $this->getUrl('*/*/resend', array('_secure' => true));
     }
-    
+
     /**
      * Type is Enabled
-     * 
+     *
      * @return type
      */
     public function isEnabled()
     {
         return !Mage::getStoreConfigFlag(Loewenstark_Newsletter_Model_Subscriber::XML_PATH_ADVANCED_DOUBELOPTIN);
     }
-    
+
     /**
-     * get Current 
+     * get Current
      * @return type
      */
     public function getStatus()
     {
         return (int) $this->getSubscriptionObject()->getStatus();
     }
-    
+
     /**
      * Subscriber Model
-     * 
+     *
      * @return Loewenstark_Newsletter_SubscriberController
      */
     public function getSubscription()
     {
         return $this->getSubscriptionObject();
     }
-    
+
     /**
      * Simple Mapping
-     * 
+     *
      * @param type $string
      * @return type
      */

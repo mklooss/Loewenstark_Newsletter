@@ -8,17 +8,16 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_Model_Subscriber
-extends Mage_Newsletter_Model_Subscriber
+class Loewenstark_Newsletter_Model_Subscriber extends Mage_Newsletter_Model_Subscriber
 {
     // configuration
-    CONST XML_PATH_ADVANCED_DOUBELOPTIN = "newsletter/advanced/doubleoptinmagedefault";
-    
+    const XML_PATH_ADVANCED_DOUBELOPTIN = "newsletter/advanced/doubleoptinmagedefault";
+
     /** @var bool $_sendConfirmationSuccessEmail check if email already send **/
     protected $_sendConfirmationSuccessEmail = true;
     /** @var bool $_sendConfirmationRequestEmail check if email already send **/
     protected $_sendConfirmationRequestEmail = true;
-    
+
     /**
      * Subscribes by email
      *
@@ -29,15 +28,14 @@ extends Mage_Newsletter_Model_Subscriber
     public function subscribe($email)
     {
         // fall back to default
-        if(Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN))
-        {
+        if (Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN)) {
             return parent::subscribe($email);
         }
-        
+
         $this->loadByEmail($email);
         $customerSession = Mage::getSingleton('customer/session');
 
-        if(!$this->getId()) {
+        if (!$this->getId()) {
             $this->setSubscriberConfirmCode($this->randomSequence());
         }
 
@@ -87,7 +85,7 @@ extends Mage_Newsletter_Model_Subscriber
             throw new Exception($e->getMessage());
         }
     }
-    
+
     /**
      * Saving customer subscription status
      *
@@ -97,11 +95,10 @@ extends Mage_Newsletter_Model_Subscriber
     public function subscribeCustomer($customer)
     {
         // fall back to default
-        if(Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN))
-        {
+        if (Mage::getStoreConfigFlag(self::XML_PATH_ADVANCED_DOUBELOPTIN)) {
             return parent::subscribeCustomer($customer);
         }
-        
+
         $this->loadByCustomer($customer);
 
         if ($customer->getImportMode()) {
@@ -114,7 +111,7 @@ extends Mage_Newsletter_Model_Subscriber
             return $this;
         }
 
-        if(!$this->getId()) {
+        if (!$this->getId()) {
             $this->setSubscriberConfirmCode($this->randomSequence());
         }
 
@@ -132,7 +129,7 @@ extends Mage_Newsletter_Model_Subscriber
             /**
              * If subscription status has been changed then send email to the customer
              */
-            if($status == self::STATUS_UNCONFIRMED) {
+            if ($status == self::STATUS_UNCONFIRMED) {
                 $sendInformationEmail = true;
             }
         } elseif (($this->getStatus() == self::STATUS_UNCONFIRMED) && (is_null($confirmation))) {
@@ -142,13 +139,13 @@ extends Mage_Newsletter_Model_Subscriber
             $status = ($this->getStatus() == self::STATUS_NOT_ACTIVE ? self::STATUS_UNSUBSCRIBED : $this->getStatus());
         }
 
-        if($status != $this->getStatus()) {
+        if ($status != $this->getStatus()) {
             $this->setIsStatusChanged(true);
         }
 
         $this->setStatus($status);
 
-        if(!$this->getId()) {
+        if (!$this->getId()) {
             $storeId = $customer->getStoreId();
             if ($customer->getStoreId() == 0) {
                 $storeId = Mage::app()->getWebsite($customer->getWebsiteId())->getDefaultStore()->getId();
@@ -162,8 +159,7 @@ extends Mage_Newsletter_Model_Subscriber
         }
 
         $this->save();
-        if($this->getIsStatusChanged())
-        {
+        if ($this->getIsStatusChanged()) {
             $sendSubscription = $customer->getData('sendSubscription') || $sendInformationEmail;
             if (is_null($sendSubscription) xor $sendSubscription) {
                 if ($this->getIsStatusChanged() && $status == self::STATUS_UNSUBSCRIBED) {
@@ -177,7 +173,7 @@ extends Mage_Newsletter_Model_Subscriber
         }
         return $this;
     }
-    
+
     /**
      * Confirms subscriber newsletter
      *
@@ -187,7 +183,7 @@ extends Mage_Newsletter_Model_Subscriber
     public function confirm($code)
     {
         $parent = (bool) parent::confirm($code);
-        if( $parent ) {
+        if ($parent) {
             $this->sendConfirmationSuccessEmail();
             return true;
         }
@@ -196,22 +192,24 @@ extends Mage_Newsletter_Model_Subscriber
 
     /**
      * Sends out confirmation success email
-     * 
+     *
      * @see Mage_Newsletter_Model_Subscriber::sendConfirmationSuccessEmail
      *
      * @return Mage_Newsletter_Model_Subscriber
      */
-    public function sendConfirmationSuccessEmail() {
+    public function sendConfirmationSuccessEmail()
+    {
         // do not send two E-Mails, may Magento will be implements this line in methode self::confirm($code)
-        if( $this->_sendConfirmationSuccessEmail ) {
+        if ($this->_sendConfirmationSuccessEmail) {
             parent::sendConfirmationSuccessEmail();
             $this->_sendConfirmationSuccessEmail = !$this->_sendConfirmationSuccessEmail;
         }
         return $this;
     }
-    
-    public function sendConfirmationRequestEmail() {
-        if( $this->_sendConfirmationRequestEmail ) {
+
+    public function sendConfirmationRequestEmail()
+    {
+        if ($this->_sendConfirmationRequestEmail) {
             parent::sendConfirmationRequestEmail();
             $this->_sendConfirmationRequestEmail = !$this->_sendConfirmationRequestEmail;
         }
