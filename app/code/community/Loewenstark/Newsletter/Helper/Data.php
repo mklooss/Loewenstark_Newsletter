@@ -8,7 +8,6 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_Helper_Data
-extends Mage_Newsletter_Helper_Data
+class Loewenstark_Newsletter_Helper_Data extends Mage_Newsletter_Helper_Data
 {
 }

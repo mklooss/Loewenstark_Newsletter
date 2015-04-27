@@ -8,9 +8,11 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_UnsubscriberController
-extends Mage_Core_Controller_Front_Action
+class Loewenstark_Newsletter_UnsubscriberController extends Mage_Core_Controller_Front_Action
 {
+    /**
+     *
+     */
     public function indexAction()
     {
         if ($this->getRequest()->isPost() && $this->getRequest()->getPost('email')) {
@@ -24,11 +26,9 @@ extends Mage_Core_Controller_Front_Action
 
                 $status = Mage::getModel('newsletter/unsubscriber')->unsubscribeByEmail($email);
                 $session->addSuccess($this->__('You have been unsubscribed.'));
-            }
-            catch (Mage_Core_Exception $e) {
+            } catch (Mage_Core_Exception $e) {
                 $session->addException($e, $this->__('There was a problem with the unsubscription: %s', $e->getMessage()));
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 $session->addException($e, $this->__('There was a problem with the unsubscription.'));
             }
         }

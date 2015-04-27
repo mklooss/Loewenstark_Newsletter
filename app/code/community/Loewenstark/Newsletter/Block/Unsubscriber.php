@@ -8,10 +8,8 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_Block_Unsubscriber
-extends Mage_Newsletter_Block_Subscribe
+class Loewenstark_Newsletter_Block_Unsubscriber extends Mage_Newsletter_Block_Subscribe
 {
-    
     /**
      * Retrieve form action url and set "secure" param to avoid confirm
      * message when we submit form from secure page to unsecure

@@ -8,8 +8,7 @@
   * @copyright 2013 Loewenstark Web-Solution GmbH (http://www.loewenstark.de). All rights served.
   * @license     https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md
   */
-class Loewenstark_Newsletter_SubscriberController
-extends Mage_Core_Controller_Front_Action
+class Loewenstark_Newsletter_SubscriberController extends Mage_Core_Controller_Front_Action
 {
     /**
       * New subscription action
@@ -27,13 +26,12 @@ extends Mage_Core_Controller_Front_Action
                     Mage::throwException($helper->__('Please enter a valid email address.'));
                 }
 
-                if (Mage::getStoreConfig(Mage_Newsletter_Model_Subscriber::XML_PATH_ALLOW_GUEST_SUBSCRIBE_FLAG) != 1 && 
+                if (Mage::getStoreConfig(Mage_Newsletter_Model_Subscriber::XML_PATH_ALLOW_GUEST_SUBSCRIBE_FLAG) != 1 &&
                     !$customerSession->isLoggedIn()) {
                     Mage::throwException($helper->__('Sorry, but administrator denied subscription for guests. Please <a href="%s">register</a>.', Mage::helper('customer')->getRegisterUrl()));
                 }
 
-                if(Mage::getStoreConfigFlag(Loewenstark_Newsletter_Model_Subscriber::XML_PATH_ADVANCED_DOUBELOPTIN))
-                {
+                if (Mage::getStoreConfigFlag(Loewenstark_Newsletter_Model_Subscriber::XML_PATH_ADVANCED_DOUBELOPTIN)) {
                     $ownerId = Mage::getModel('customer/customer')
                             ->setWebsiteId(Mage::app()->getStore()->getWebsiteId())
                             ->loadByEmail($email)
@@ -46,15 +44,12 @@ extends Mage_Core_Controller_Front_Action
                 $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
                 if ($status == Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE) {
                     $session->addSuccess($helper->__('Confirmation request has been sent.'));
-                }
-                else {
+                } else {
                     $session->addSuccess($helper->__('Thank you for your subscription.'));
                 }
-            }
-            catch (Mage_Core_Exception $e) {
+            } catch (Mage_Core_Exception $e) {
                 $session->addException($e, $helper->__('There was a problem with the subscription: %s', $e->getMessage()));
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 $session->addException($e, $helper->__('There was a problem with the subscription.'));
             }
         }
