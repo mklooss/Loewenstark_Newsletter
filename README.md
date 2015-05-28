@@ -6,7 +6,7 @@ Double OptIn for Registered Customers
 
 Facts
 -----
-- version: 1.5.0.2
+- version: 1.5.0.3
 - [extension on GitHub](https://github.com/mklooss/Loewenstark_Newsletter)
 - [extension on Magento Connect](http://www.magentocommerce.com/magento-connect/catalog/product/view/id/15534/)
 - Magento Connect: http://connect20.magentocommerce.com/community/Loewenstark_Newsletter

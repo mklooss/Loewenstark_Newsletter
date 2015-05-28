@@ -1,5 +1,5 @@
 <_>
-   <form_key>YjWAz4owimWZ9Gu1</form_key>
+   <form_key>lV73P5ZcG1hrq8s6</form_key>
    <name>Loewenstark_Newsletter</name>
    <channel>community</channel>
    <version_ids>
@@ -9,9 +9,9 @@
    <description>Change some Methodes and use always Double-OptIn</description>
    <license>GPL-3</license>
    <license_uri>https://github.com/mklooss/Loewenstark_Newsletter/blob/master/README.md#licence</license_uri>
-   <version>1.5.0.2</version>
+   <version>1.5.0.3</version>
    <stability>stable</stability>
-   <notes>initial Release</notes>
+   <notes>Bugfixing Release</notes>
    <authors>
       <name>
          <name>Mathis Klooss</name>
@@ -20,7 +20,7 @@
          <user>mklooss</user>
       </user>
       <email>
-         <email>m.klooss@loewenstark.de</email>
+         <email>mathis@mage-profis.de</email>
       </email>
    </authors>
    <depends_php_min>5.2.12</depends_php_min>
@@ -40,7 +40,7 @@
             <max/>
          </max>
          <files>
-            <files>    </files>
+            <files>     </files>
          </files>
       </package>
       <extension>
@@ -107,4 +107,8 @@
          <ignore/>
       </ignore>
    </contents>
+   <page>1</page>
+   <limit>200</limit>
+   <folder/>
+   <package/>
 </_>
