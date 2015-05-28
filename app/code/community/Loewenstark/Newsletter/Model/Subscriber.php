@@ -135,7 +135,7 @@ class Loewenstark_Newsletter_Model_Subscriber extends Mage_Newsletter_Model_Subs
             /**
              * reset with data from subscription
              */
-            if($status == self::STATUS_UNCONFIRMED && $this->getStatus() == self::STATUS_SUBSCRIBED)
+            if ($status == self::STATUS_UNCONFIRMED && $this->getStatus() == self::STATUS_SUBSCRIBED)
             {
                 $status = self::STATUS_SUBSCRIBED;
                 $sendInformationEmail = false;
