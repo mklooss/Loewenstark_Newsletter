@@ -19,6 +19,34 @@ class Loewenstark_Newsletter_Model_Subscriber extends Mage_Newsletter_Model_Subs
     protected $_sendConfirmationRequestEmail = true;
 
     /**
+     * Load subscriber info by customer
+     *
+     * @param Mage_Customer_Model_Customer $customer
+     * @return Mage_Newsletter_Model_Subscriber
+     */
+    public function loadByCustomer(Mage_Customer_Model_Customer $customer)
+    {
+        $data = $this->getResource()->loadByCustomer($customer);
+        $this->addData($data);
+        if (!empty($data) && $customer->getId() && !$this->getCustomerId()) {
+            $this->setCustomerId($customer->getId());
+            // if code exists use the current code
+            $code = $this->getSubscriberConfirmCode();
+            if(!$code)
+            {
+                $code = $this->randomSequence();
+            }
+            $this->setSubscriberConfirmCode($code);
+            if ($this->getStatus()==self::STATUS_NOT_ACTIVE) {
+                $this->setStatus($customer->getIsSubscribed() ? self::STATUS_SUBSCRIBED : self::STATUS_UNSUBSCRIBED);
+            }
+            $this->save();
+        }
+        return $this;
+    }
+
+
+    /**
      * Subscribes by email
      *
      * @param string $email
@@ -129,7 +157,8 @@ class Loewenstark_Newsletter_Model_Subscriber extends Mage_Newsletter_Model_Subs
             /**
              * If subscription status has been changed then send email to the customer
              */
-            if ($status == self::STATUS_UNCONFIRMED) {
+            if ($status == self::STATUS_UNCONFIRMED || $this->getStatus() == self::STATUS_UNCONFIRMED) {
+                $status = self::STATUS_UNCONFIRMED;
                 $sendInformationEmail = true;
             }
             /**
